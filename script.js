@@ -149,10 +149,11 @@ button.addEventListener("click", () => {
 
     gameLoop();
 });
-// Добавляем поддержку управления тапами (нажать слева/справа от центра)
+// Управление тапами по экрану для телефона
 canvas.addEventListener("touchstart", (e) => {
     const touchX = e.touches[0].clientX;
-    if (touchX < window.innerWidth / 2) {
+    const centerX = window.innerWidth / 2;
+    if (touchX < centerX) {
         keys["ArrowLeft"] = true;
     } else {
         keys["ArrowRight"] = true;
