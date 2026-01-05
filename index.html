@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula 1: Энциклопедия и Симулятор</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">F1 <span>Ultimate Guide</span></div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Formula 1</h1>
+            <p>Королевские гонки: Технологии, Скорость, Отвага</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Мир высших достижений</h2>
+            <p>Формула-1 — это не просто соревнование водителей, это чемпионат конструкторов. Каждая деталь болида, от переднего антикрыла до диффузора, проектируется с использованием суперкомпьютеров и продувается в аэродинамических трубах.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Технический регламент</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Силовая установка</h3>
+                    <p>С 2014 года используются турбированные двигатели V6 объемом 1.6 литра. Они работают в паре с гибридными системами MGU-K и MGU-H, выдавая суммарно более 1000 л.с.</p>
+                </div>
+                <div class="card">
+                    <h3>Система DRS</h3>
+                    <p>Drag Reduction System позволяет пилоту отклонять плоскость заднего крыла на прямых, снижая лобовое сопротивление и облегчая обгоны.</p>
+                </div>
+                <div class="card">
+                    <h3>Halo</h3>
+                    <p>Титановая защита кокпита, выдерживающая вес двухэтажного автобуса. Введена в 2018 году и спасла уже десятки жизней пилотов.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Как куется победа</h2>
+            <div class="card-full">
+                <p>Очки получают первые 10 финишировавших пилотов по схеме:</p>
+                <ul style="column-count: 2;">
+                    <li><strong>1 место:</strong> 25 очков</li>
+                    <li><strong>2 место:</strong> 18 очков</li>
+                    <li><strong>3 место:</strong> 15 очков</li>
+                    <li><strong>4 место:</strong> 12 очков</li>
+                    <li><strong>5 место:</strong> 10 очков</li>
+                    <li><strong>6-10 места:</strong> 8, 6, 4, 2, 1 очко</li>
+                </ul>
+                <p style="margin-top: 10px; font-style: italic; border-top: 1px solid #444; padding-top: 10px;">
+                    Дополнительное 1 очко дается за **Лучший круг** в гонке, если пилот финишировал в топ-10.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Язык флагов</h2>
+            <div class="list-group">
+                <div class="list-item" style="border-left: 10px solid #ffff00;"><strong>Желтый:</strong> Опасность на трассе, обгоны запрещены.</div>
+                <div class="list-item" style="border-left: 10px solid #33ff33;"><strong>Зеленый:</strong> Опасность миновала, гоночный режим возобновлен.</div>
+                <div class="list-item" style="border-left: 10px solid #e10600;"><strong>Красный:</strong> Сессия остановлена, всем вернуться в боксы.</div>
+                <div class="list-item" style="border-left: 10px solid #000000; background: #fff; color: #000;"><strong>Клетчатый:</strong> Финиш гонки или квалификации.</div>
+            </div>
+        </section>
+
+        <div class="action-zone" style="text-align: center; margin: 50px 0;">
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">Готовы выйти на старт Гран-при?</p>
+            <button id="myButton" style="padding: 20px 50px; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px;">Завести двигатель!</button>
+        </div>
+
+        <div id="gameContainer" style="display: none; flex-direction: column; align-items: center; margin: 0 auto; width: 400px; padding-bottom: 50px;">
+            
+            <canvas id="raceCanvas" width="400" height="600" style="border: 5px solid #e10600; border-radius: 15px; background-color: #222; box-shadow: 0 0 30px rgba(225, 6, 0, 0.2);"></canvas>
+
+            <div id="gameUI" style="text-align: center; margin-top: 25px; width: 100%;">
+                <p style="font-family: 'Orbitron'; color: #aaa; font-size: 0.9rem; margin-bottom: 10px;">Управление: СТРЕЛКИ ← / →</p>
+                
+                <h2 id="scoreBoard" style="font-family: 'Orbitron'; color: #e10600; font-size: 3.5rem; margin: 0; text-shadow: 2px 2px 0px #000;">Счёт: 0</h2>
+                
+                <button id="restartBtn" onclick="location.reload()" style="display: none; background: #e10600; color: white; border: none; border-radius: 5px; padding: 18px 50px; font-family: 'Orbitron'; font-size: 1.3rem; cursor: pointer; font-weight: bold; text-transform: uppercase; margin-top: 25px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); transition: 0.2s;">
+                    ПОПРОБОВАТЬ СНОВА
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Formula 1 Ultimate Guide. Создано для фанатов скорости.</p>
+    </footer>
+
+    <audio id="engineSound" src="engine.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
